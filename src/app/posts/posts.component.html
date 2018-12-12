@@ -1,0 +1,23 @@
+<div *ngIf="response$">
+  <h1 class=".mat-h4">Applicable from {{ response$.date }} 06:00 AM</h1>
+  <div
+    fxLayout="row wrap"
+    fxLayoutAlign="space-evenly stretch"
+    fxLayoutGap="10px"
+    id="prices"
+  >
+    <mat-card mat-ripple *ngFor="let city of response$.cities">
+      <mat-card-header>
+        <mat-card-title> {{ city.city }}</mat-card-title>
+        <mat-card-subtitle>{{ city.state }}</mat-card-subtitle>
+      </mat-card-header>
+      <mat-card-content>
+        <ul>
+          <li>Petrol {{ city.petrol | currency: "&#8377;" }}</li>
+          <li>Diesel {{ city.diesel | currency: "&#8377;" }}</li>
+        </ul>
+      </mat-card-content>
+      <mat-card-subtitle class="last-child"> </mat-card-subtitle>
+    </mat-card>
+  </div>
+</div>
